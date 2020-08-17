@@ -1,0 +1,28 @@
+<div class="form">
+  <form class="flex flex-column new-gateway-form" *ngIf="showForm" #gatewayForm="ngForm" (ngSubmit)="addNewGateway(gatewayForm)">
+    <div class="flex">
+      <mat-form-field appearance="fill">
+        <mat-label>Gateway Name</mat-label>
+        <input matInput name="name" [(ngModel)]="formModel.name"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>IPv4 Address</mat-label>
+        <input matInput name="IPv4Address" [(ngModel)]="formModel.IPv4Address"/>
+      </mat-form-field>
+    </div>
+    <div class="actions">
+      <button mat-raised-button color="primary" type="submit">
+        Add Gateway to the list
+      </button>
+      <button mat-raised-button color="secondary" (click)="show()">
+        Cancel
+      </button>
+    </div>
+    <div class="error" *ngIf="error">
+      {{error}}
+    </div>
+  </form>
+  <button mat-raised-button color="primary" (click)="show()" *ngIf="!showForm">
+    Add new Gateway
+  </button>
+</div>

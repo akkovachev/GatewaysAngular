@@ -1,0 +1,21 @@
+:host {
+  width: 100%;
+    .row {
+      width: calc(100% / 4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.offline {
+        color: red;
+      }
+
+      &.online {
+        color: green;
+      }
+    }
+
+    .content-row {
+      background: #525252;
+    }
+}

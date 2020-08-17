@@ -1,0 +1,8 @@
+<div class="flex content-row justify-content-space-between">
+  <div class="row">{{devicesMap[deviceId]._id}}</div>
+  <div class="row">{{devicesMap[deviceId].vendor}}</div>
+  <div class="row" [ngClass]="{'offline': (devicesMap[deviceId].status.toLowerCase() === 'offline'), 'online': (devicesMap[deviceId].status.toLowerCase()!== 'offline')}">{{devicesMap[deviceId].status}}</div>
+  <div class="row">
+    <button mat-button (click)="remove()">Remove</button>
+  </div>
+</div>

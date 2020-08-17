@@ -1,0 +1,18 @@
+<div *ngIf="gateway && gateway.devices.length !== 0">
+  <h1>Gateway Devices - {{gateway.name}}</h1>
+  <div class="device flex flex-column">
+    <div class="headers flex justify-content-space-between">
+      <div class="row">Id</div>
+      <div class="row">Vendor</div>
+      <div class="row">Status</div>
+      <div class="row">Actions</div>
+    </div>
+    <app-device-item
+      [deviceId]="deviceId"
+      [devicesMap]="devicesMap"
+      [gatewayId]="gateway._id"
+      *ngFor="let deviceId of gateway.devices"></app-device-item>
+  </div>
+</div>
+<div *ngIf="gateway.devices.length === 0">No Devices linked to this gateway</div>
+<app-add-new-gateway-device [gatewayId]="gateway._id"></app-add-new-gateway-device>

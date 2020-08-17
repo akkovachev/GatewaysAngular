@@ -1,0 +1,31 @@
+:host {
+  width: 100%;
+  .device {
+    margin: 10px 0;
+    .headers {
+      background: #626262;
+      padding: 10px;
+    }
+
+    .row {
+      width: calc(100% / 4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.offline {
+        color: red;
+      }
+
+      &.online {
+        color: green;
+      }
+
+    }
+
+    .content-row {
+      @extend .headers;
+      background: #525252;
+    }
+  }
+}

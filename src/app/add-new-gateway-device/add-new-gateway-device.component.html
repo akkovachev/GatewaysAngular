@@ -1,0 +1,32 @@
+<div class="form" *ngIf="showForm">
+  <form class="new-gateway-device-form">
+    <mat-form-field class="full-width">
+      <input
+        type="text"
+        placeholder="Devices"
+        aria-label="Number"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        [displayWith]="displayFn"
+        (optionSelected)="valueSelected($event.option.value)"
+      >
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option"
+        >
+          {{ option.vendor }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addDeviceToGateway()">
+      Add device to Gateway
+    </button>
+  </form>
+</div>
+<button mat-raised-button color="primary" (click)="show()" *ngIf="!showForm">
+  Add new Device
+</button>

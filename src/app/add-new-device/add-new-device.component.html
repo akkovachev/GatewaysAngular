@@ -1,0 +1,28 @@
+<div class="form">
+  <form class="flex flex-column new-device-form" *ngIf="showForm" #deviceForm="ngForm" (ngSubmit)="addNewDevice(deviceForm)">
+    <div class="flex">
+      <mat-form-field appearance="fill">
+        <mat-label>Vendor</mat-label>
+        <input matInput name="vendor" [(ngModel)]="formModel.vendor"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <input matInput name="status" [(ngModel)]="formModel.status"/>
+      </mat-form-field>
+    </div>
+    <div class="actions">
+      <button mat-raised-button color="primary" type="submit">
+        Add Device to the list
+      </button>
+      <button mat-raised-button color="secondary" (click)="show()">
+        Cancel
+      </button>
+    </div>
+    <div class="error" *ngIf="error">
+      {{error}}
+    </div>
+  </form>
+  <button mat-raised-button color="primary" (click)="show()" *ngIf="!showForm">
+    Add new Device
+  </button>
+</div>

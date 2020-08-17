@@ -1,0 +1,34 @@
+:host {
+  .form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    .actions {
+      button {
+        margin: 0 10px;
+      }
+    }
+
+    .new-device-form {
+      margin: 10px;
+      width: 600px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid #ccc;
+
+      mat-form-field {
+        margin:0 10px;
+      }
+
+    }
+
+    .error {
+      padding: 10px;
+      color: #ff0000;
+    }
+
+  }
+}

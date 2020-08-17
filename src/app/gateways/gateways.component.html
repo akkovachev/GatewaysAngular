@@ -1,0 +1,15 @@
+<mat-tab-group>
+  <mat-tab [label]="'Gateways ' + '(' + gateways.length + ')'">
+    <div *ngIf="gatewayHeaders">
+      <data-table
+        [headers]="gatewayHeaders"
+        [data]="gateways"
+        [deviceData]="devicesMap"
+        [expandable]="true"
+        [mode]="'gateway'"></data-table>
+    </div>
+  </mat-tab>
+  <mat-tab [label]="'Devices ' + '(' + devices.length + ')'">
+    <data-table [headers]="devicesHeader" [data]="devices" [deviceData]="devicesMap"></data-table>
+  </mat-tab>
+</mat-tab-group>
