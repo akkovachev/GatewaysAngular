@@ -19,6 +19,10 @@
  (inside AngularGateway) Run:
 `ng serve`
 
+That's it!
+If everything went well the project should start at http://localhost:4200
+No server needed to be run as the endpoints will point to the deployed version at akkovahcev.com/api (for convinience)
+
 # GatewaysAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
