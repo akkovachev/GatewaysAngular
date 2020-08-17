@@ -14,5 +14,4 @@
       *ngFor="let deviceId of gateway.devices"></app-device-item>
   </div>
 </div>
-<div *ngIf="gateway.devices.length === 0">No Devices linked to this gateway</div>
-<app-add-new-gateway-device [gatewayId]="gateway._id"></app-add-new-gateway-device>
+<app-add-new-gateway-device [gatewayId]="gateway._id" [devicesCount]="gateway.devices.length"></app-add-new-gateway-device>

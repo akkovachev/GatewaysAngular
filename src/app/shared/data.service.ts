@@ -31,7 +31,7 @@ export class DataService {
   }
 
   addDeviceToGateway(gatewayId, deviceId) {
-    this.httpClient.post<IGateway>(this.apiEndPoints.getAddDeviceToGateway(), {
+    return this.httpClient.post<IGateway>(this.apiEndPoints.getAddDeviceToGateway(), {
       gatewayId: gatewayId,
       deviceId: deviceId
     }).toPromise().then(d => {
@@ -43,7 +43,7 @@ export class DataService {
       }
 
       this.gatewaysSubject.next(updatedGateways)
-    }).catch(e => console.log(e))
+    })
   }
 
   removeDeviceFromGateway(gatewayId, deviceId) {

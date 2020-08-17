@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IGateway } from '../models/Gateway.model';
 import { DataService } from '../shared/data.service';
@@ -9,7 +9,7 @@ import { DataService } from '../shared/data.service';
   styleUrls: ['./add-new-gateway.component.scss']
 })
 export class AddNewGatewayComponent implements OnInit {
-
+  @ViewChild('gatewayForm') gatewayForm: NgForm;
   constructor(private dataService: DataService) { }
 
   error: string;
@@ -27,16 +27,18 @@ export class AddNewGatewayComponent implements OnInit {
     let formValues = form.value;
 
     this.dataService.addNewGateway(formValues).then(d => {
-      form.reset();
-      this.error = null;
-      this.show()
+      this.toggleShow()
     }).catch(e => {
       this.error = e.error.errors[0].msg
     })
   }
 
-  show() {
+  toggleShow() {
     this.showForm = !this.showForm;
+    if(this.gatewayForm) {
+      this.gatewayForm.reset()
+    }
+    this.error = null;
   }
 
 }

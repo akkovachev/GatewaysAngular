@@ -14,7 +14,7 @@
       <button mat-raised-button color="primary" type="submit">
         Add Gateway to the list
       </button>
-      <button mat-raised-button color="secondary" (click)="show()">
+      <button mat-raised-button color="secondary" (click)="toggleShow()">
         Cancel
       </button>
     </div>
@@ -22,7 +22,7 @@
       {{error}}
     </div>
   </form>
-  <button mat-raised-button color="primary" (click)="show()" *ngIf="!showForm">
+  <button mat-raised-button color="primary" (click)="toggleShow()" *ngIf="!showForm">
     Add new Gateway
   </button>
 </div>

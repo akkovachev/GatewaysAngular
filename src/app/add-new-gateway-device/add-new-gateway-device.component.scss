@@ -1,0 +1,24 @@
+:host {
+  .form {
+    text-align: center;
+    button {
+      margin-left: 10px;
+    }
+  }
+  .light-blue {
+    background: #90caf9;
+  }
+  .readMode {
+    .no-devices {
+      padding: 10px 0;
+      font-size: 16px;
+    }
+  }
+  .error {
+    color: red;
+  }
+
+  button {
+    margin-bottom: 10px;
+  }
+}

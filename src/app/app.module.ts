@@ -21,6 +21,7 @@ import { GatewayDevicesComponent } from './gateway-devices/gateway-devices.compo
 import { HttpErrorInterceptor } from './shared/http-error.interceptor';
 import { AddNewGatewayComponent } from './add-new-gateway/add-new-gateway.component';
 import { AddNewDeviceComponent } from './add-new-device/add-new-device.component';
+import { EmptyStateComponent } from './empty-state/empty-state.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AddNewDeviceComponent } from './add-new-device/add-new-device.component
     AddNewGatewayDeviceComponent,
     GatewayDevicesComponent,
     AddNewGatewayComponent,
-    AddNewDeviceComponent
+    AddNewDeviceComponent,
+    EmptyStateComponent
   ],
   imports: [
     BrowserModule,

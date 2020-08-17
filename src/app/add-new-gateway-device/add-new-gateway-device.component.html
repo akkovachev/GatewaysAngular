@@ -1,4 +1,4 @@
-<div class="form" *ngIf="showForm">
+<div class="form flex flex-column" *ngIf="showForm">
   <form class="new-gateway-device-form">
     <mat-form-field class="full-width">
       <input
@@ -25,8 +25,21 @@
     <button mat-raised-button color="primary" (click)="addDeviceToGateway()">
       Add device to Gateway
     </button>
+    <button mat-raised-button color="seconday" (click)="toggleForm()">
+      Canel
+    </button>
   </form>
+  <div class="error" *ngIf="inlineErrorMessage">{{ inlineErrorMessage }}</div>
 </div>
-<button mat-raised-button color="primary" (click)="show()" *ngIf="!showForm">
-  Add new Device
-</button>
+<div class="readMode flex justify-content-center flex-column align-items-center" *ngIf="!showForm">
+    <div *ngIf="devicesCount === 0" class="no-devices">
+      No Devices linked to this gateway
+    </div>
+    <button
+      mat-raised-button
+      class="light-blue"
+      (click)="toggleForm()"
+      *ngIf="!showForm">
+      Add new Device
+    </button>
+</div>

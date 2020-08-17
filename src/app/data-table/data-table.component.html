@@ -1,6 +1,7 @@
 <table mat-table
        [dataSource]="data" multiTemplateDataRows
-       class="mat-elevation-z8">
+       class="mat-elevation-z8"
+       *ngIf="data.length">
   <ng-container matColumnDef="{{column}}" *ngFor="let column of tableValues">
     <th mat-header-cell *matHeaderCellDef> {{tableHeadersMap[column].label}} </th>
     <td mat-cell *matCellDef="let element">
@@ -46,6 +47,13 @@
 </ng-container>
 </table>
 
-<app-add-new-gateway *ngIf="expandable"></app-add-new-gateway>
-<app-add-new-device *ngIf="!expandable"></app-add-new-device>
+<app-empty-state [model]="data" emptyStateMessage="No Gateways available. Start by adding one from the button below" *ngIf="mode">
+  <app-add-new-gateway *ngIf="mode === 'gateway'"></app-add-new-gateway>
+</app-empty-state>
+
+<app-empty-state [model]="data" emptyStateMessage="No Devices available. Start by adding one from the button below?" *ngIf="!mode">
+  <app-add-new-device *ngIf="!mode"></app-add-new-device>
+</app-empty-state>
+
+
 

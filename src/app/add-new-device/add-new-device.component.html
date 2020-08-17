@@ -5,9 +5,13 @@
         <mat-label>Vendor</mat-label>
         <input matInput name="vendor" [(ngModel)]="formModel.vendor"/>
       </mat-form-field>
+
       <mat-form-field appearance="fill">
         <mat-label>Status</mat-label>
-        <input matInput name="status" [(ngModel)]="formModel.status"/>
+        <mat-select name="status" [(ngModel)]="formModel.status">
+          <mat-option value="Online">Online</mat-option>
+          <mat-option value="Offline">Offline</mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
     <div class="actions">

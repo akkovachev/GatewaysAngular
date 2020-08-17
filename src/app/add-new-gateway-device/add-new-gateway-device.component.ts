@@ -12,10 +12,12 @@ import { IDevice } from '../models/Device.model';
 })
 export class AddNewGatewayDeviceComponent implements OnInit {
   @Input() gatewayId: string;
+  @Input() devicesCount: number;
 
   constructor(private dataService: DataService) { }
 
   showForm = false;
+  inlineErrorMessage = null;
 
   myControl = new FormControl();
   options: IDevice[];
@@ -37,14 +39,15 @@ export class AddNewGatewayDeviceComponent implements OnInit {
     );
   }
 
-  private _filter(value: IDevice): IDevice[] {
-    const filterValue = value.vendor;
-
-    return this.options.filter(option => option.vendor.indexOf(filterValue));
+  private _filter(value: string): IDevice[] {
+    const filterValue = value.toLowerCase();
+    return this.options.filter(option => option.vendor.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  show() {
-    this.showForm = true;
+  toggleForm() {
+    this.showForm = !this.showForm;
+    this.myControl.reset();
+    this.inlineErrorMessage = null
   }
 
   displayFn(device: IDevice): string {
@@ -56,8 +59,11 @@ export class AddNewGatewayDeviceComponent implements OnInit {
   }
 
   addDeviceToGateway() {
-    this.dataService.addDeviceToGateway(this.gatewayId, this.deviceToAdd._id)
-    console.log(this.gatewayId, this.deviceToAdd)
+    this.dataService.addDeviceToGateway(this.gatewayId, this.deviceToAdd._id).then(d => {
+      this.toggleForm()
+    }).catch(e => {
+      this.inlineErrorMessage = e.error.message
+    })
   }
 
   ngOnDestroy() {
