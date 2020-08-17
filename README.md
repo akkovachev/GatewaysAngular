@@ -1,3 +1,15 @@
+# Install localy
+
+`mkdir AngularGateway`
+
+`cd AngularGateway`
+
+`git clone git@github.com:akkovachev/GatewaysAngular.git .`
+
+`npm i`
+
+`ng serve`
+
 # GatewaysAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
