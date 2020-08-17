@@ -1,13 +1,22 @@
-# Install localy
+# Prerequisite
+  To successfully run that app we need nodeJs > v 10, angular and Angluar CLI
+  
+  Install angular cli (if you don't have it)
+  `npm install -g @angular/cli`
+  
+# Run Project Localy
 
 `mkdir AngularGateway`
 
 `cd AngularGateway`
-
+  
+ (inside AngularGateway)
 `git clone git@github.com:akkovachev/GatewaysAngular.git .`
 
+ (inside AngularGateway)
 `npm i`
 
+ (inside AngularGateway)
 `ng serve`
 
 # GatewaysAngular
