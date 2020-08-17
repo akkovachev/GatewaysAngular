@@ -10,13 +10,13 @@
 
 `cd AngularGateway`
   
- (inside AngularGateway)
+ (inside AngularGateway) Run:
 `git clone git@github.com:akkovachev/GatewaysAngular.git .`
-
- (inside AngularGateway)
+  
+ (inside AngularGateway) Run:
 `npm i`
 
- (inside AngularGateway)
+ (inside AngularGateway) Run:
 `ng serve`
 
 # GatewaysAngular
